@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 @Component
 public class ServeiConsultaEmpreses {
 
+    private float mitjanaDiariaCotitzacions = 0f;
 
     // aquest servei necessita d'un integrador de cotitzacions per retornar la informacio
     // declarau la dependencia i feis que spring la resolgui
@@ -22,6 +23,10 @@ public class ServeiConsultaEmpreses {
     }
 
 
+    @PostConstruct
+    public void init(){
+        this.mitjanaDiariaCotitzacions = clientCotizacions.obteMitjanaDiariaCotitzacions();
+    }
 
     // modifiqueu aquest metode per canviar el 0 per el valor obtingut del clientCotitzacionsWS
     // aquest es, segurament, l'exercici mes xungo !
@@ -29,7 +34,7 @@ public class ServeiConsultaEmpreses {
     // pista (si nomes s'ha de cridar una vegada ... haurem de guardar el resultat a alguna banda ... )
     public String infoDiari() {
 
-        return "La cotitzacio mitjana diaria es 0";
+        return "La cotitzacio mitjana diaria es " + this.mitjanaDiariaCotitzacions;
     }
 
 }
