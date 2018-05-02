@@ -3,9 +3,12 @@ package org.mvpigs.ComponentsExercici.component;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
 // aquesta classe ha de ser detectada com un component
 @Component
 public class ServeiConsultaEmpreses {
+
 
     // aquest servei necessita d'un integrador de cotitzacions per retornar la informacio
     // declarau la dependencia i feis que spring la resolgui
@@ -15,8 +18,9 @@ public class ServeiConsultaEmpreses {
     // modifiqueu aquest metode per canviar el 0 per el valor obtingut del clientCotitzacionsWS
     public String infoEmpresa(String empresa) {
 
-        return "La empresa " + empresa + " cotitza a 0";
+        return "La empresa " + empresa + " cotitza a " + clientCotizacions.obteCotitzacio(empresa);
     }
+
 
 
     // modifiqueu aquest metode per canviar el 0 per el valor obtingut del clientCotitzacionsWS
