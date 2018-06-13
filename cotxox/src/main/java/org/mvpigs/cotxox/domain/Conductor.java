@@ -11,6 +11,8 @@ import java.util.Set;
 @Table(name="t_conductores")
 public class Conductor {
 
+    @OneToOne
+    @JoinColumn(name="c_tarjeta_credito")
 	private String tarjeta;
 
 	@Id

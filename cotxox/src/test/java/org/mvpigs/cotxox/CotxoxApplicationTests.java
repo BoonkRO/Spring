@@ -9,7 +9,9 @@ import org.junit.runner.RunWith;
 import org.mvpigs.cotxox.domain.Carrera;
 import org.mvpigs.cotxox.domain.Conductor;
 import org.mvpigs.cotxox.repo.CarreraRepo;
+import org.mvpigs.cotxox.repo.ConductorRepo;
 import org.mvpigs.cotxox.service.CarreraService;
+import org.mvpigs.cotxox.service.ConductorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.repository.Repository;
@@ -46,12 +48,12 @@ public class CotxoxApplicationTests {
 
 	@Autowired(required=false)
     CarreraService carreraService;
-//
-//	@Autowired(required=false)
-//	ConductorRepo conductorRepo;
-//
-//	@Autowired(required=false)
-//	ConductorService conductorService;
+
+	@Autowired(required=false)
+    ConductorRepo conductorRepo;
+
+	@Autowired(required=false)
+    ConductorService conductorService;
 
 	@PersistenceContext
 	private EntityManager em;
@@ -115,52 +117,52 @@ public class CotxoxApplicationTests {
 		// seria necessari afegir el conductor però anem a testear primer repo
 		Assert.assertEquals("1234567890123456", carreraService.recuperaCarrera(idCarrera).getTarjetaCredito());
 	}
-//
-//	/**
-//	 * Crea una classe ConductorRepo que sigui un repositori Spring Data
-//	 * per l'entitat Conductor
-//	 */
-//	@Test
-//	public void test_ConductorRepo_es_repositori() {
-//		Assert.assertNotNull(conductorRepo);
-//		Assert.assertTrue(conductorRepo instanceof Repository);
-//	}
-//
-//	/**
-//	 * Implementa el servei de l'entitat conductor i el seu repositori
-//	 * per a recuperar un conductor per la seva targeta de crèdit.
-//	 */
-//
-//	@Test
-//	public void test_recuperar_conductor() {
-//		Conductor conductor = conductorService.recuperarConductor("1111111111111111");
-//		Assert.assertNotNull(conductor);
-//		Assert.assertEquals("Samantha", conductor.getNombre());
-//	}
-//
-//	/**
-//	 * Completa el codi del cas test test_save_conductor()
-//	 * per a afegir les conductores següents a la BBDD
-//	 * mitjançant el servei de l'entitat conductor:
-//	 *
-//	 * String[] nombres = {"Sabrina", "Cici"};
-//	 * String[] matricula = {"5DHJ444", "7JKK555"};
-//	 * String[] modelos = {"Toyota Prius", "Mercedes A"};
-//	 */
-//
-//	@Test
-//	public void test_save_conductor() {
-//
-//		/**
-//		 * Escriu aqui el codi per a crear les conductores
-//		 * i escriure-les a la base de dades
-//		 */
-//
-//		Assert.assertEquals("Sabrina", conductorService.recuperarConductor("2222222222222222").getNombre());
-//		Assert.assertEquals("Cici", conductorService.recuperarConductor("3333333333333333").getNombre());
-//
-//	}
-//
+
+	/**
+	 * Crea una classe ConductorRepo que sigui un repositori Spring Data
+	 * per l'entitat Conductor
+	 */
+	@Test
+	public void test_ConductorRepo_es_repositori() {
+		Assert.assertNotNull(conductorRepo);
+		Assert.assertTrue(conductorRepo instanceof Repository);
+	}
+
+	/**
+	 * Implementa el servei de l'entitat conductor i el seu repositori
+	 * per a recuperar un conductor per la seva targeta de crèdit.
+	 */
+
+	@Test
+	public void test_recuperar_conductor() {
+		Conductor conductor = conductorService.recuperarConductor("1111111111111111");
+		Assert.assertNotNull(conductor);
+		Assert.assertEquals("Samantha", conductor.getNombre());
+	}
+
+	/**
+	 * Completa el codi del cas test test_save_conductor()
+	 * per a afegir les conductores següents a la BBDD
+	 * mitjançant el servei de l'entitat conductor:
+	 *
+	 * String[] nombres = {"Sabrina", "Cici"};
+	 * String[] matricula = {"5DHJ444", "7JKK555"};
+	 * String[] modelos = {"Toyota Prius", "Mercedes A"};
+	 */
+
+	@Test
+	public void test_save_conductor() {
+
+		/**
+		 * Escriu aqui el codi per a crear les conductores
+		 * i escriure-les a la base de dades
+		 */
+
+		Assert.assertEquals("Sabrina", conductorService.recuperarConductor("2222222222222222").getNombre());
+		Assert.assertEquals("Cici", conductorService.recuperarConductor("3333333333333333").getNombre());
+
+	}
+
 //	/**
 //	 * Modifica l'atribut ocupat de l'entitat Conductor i la lògica
 //	 * del mètodes setOcupado() i isOcupado()
