@@ -87,11 +87,11 @@ public class CotxoxApplicationTests {
 	 * Crea una classe CarreraRepo que sigui un repositori Spring Data
 	 * per l'entitat Carrera
 	 */
-//	@Test
-//	public void test_RepoCarerra_es_repositori() {
-//		Assert.assertNotNull(carreraRepo);
-//		Assert.assertTrue(carreraRepo instanceof Repository);
-//	}
+	@Test
+	public void test_RepoCarerra_es_repositori() {
+		Assert.assertNotNull(carreraRepo);
+		Assert.assertTrue(carreraRepo instanceof Repository);
+	}
 //
 //	/**
 //	 * Crea una classe CarreraService que sigui un component
